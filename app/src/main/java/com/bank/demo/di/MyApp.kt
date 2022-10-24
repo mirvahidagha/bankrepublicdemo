@@ -1,4 +1,4 @@
-package com.bank.demo
+package com.bank.demo.di
 
 import android.app.Application
 import com.bank.demo.di.retrofitModule

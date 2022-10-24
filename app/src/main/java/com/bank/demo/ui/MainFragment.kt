@@ -1,4 +1,4 @@
-package com.bank.demo
+package com.bank.demo.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,13 +11,12 @@ import com.bank.demo.models.Usd
 import com.bank.demo.viewmodels.CashViewmodel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class FirstFragment : Fragment() {
+class MainFragment : Fragment() {
 
     private val cashViewModel: CashViewmodel by viewModel()
     private var _binding: FragmentFirstBinding? = null
     private var usd: Usd? = null
     private var eur: Eur? = null
-
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -38,7 +37,6 @@ class FirstFragment : Fragment() {
                     editAzn.setSelection(editAzn.length())
                     editUsd.setText("${1 / usd!!.buy}")
                     editEur.setText("${1 / eur!!.buy}")
-
                     convert.setOnClickListener {
                         val first = editAzn.text.toString().toDouble()
                         editUsd.setText("${first / usd!!.buy}")
