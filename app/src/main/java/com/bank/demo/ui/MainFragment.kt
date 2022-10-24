@@ -8,12 +8,14 @@ import androidx.fragment.app.Fragment
 import com.bank.demo.databinding.FragmentFirstBinding
 import com.bank.demo.models.Eur
 import com.bank.demo.models.Usd
+import com.bank.demo.viewmodels.AznViewmodel
 import com.bank.demo.viewmodels.CashViewmodel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
 
     private val cashViewModel: CashViewmodel by viewModel()
+    private val aznViewModel: AznViewmodel by viewModel()
     private var _binding: FragmentFirstBinding? = null
     private var usd: Usd? = null
     private var eur: Eur? = null
@@ -38,12 +40,15 @@ class MainFragment : Fragment() {
                     editUsd.setText("${1 / usd!!.buy}")
                     editEur.setText("${1 / eur!!.buy}")
                     convert.setOnClickListener {
-                        val first = editAzn.text.toString().toDouble()
-                        editUsd.setText("${first / usd!!.buy}")
-                        editEur.setText("${first / eur!!.buy}")
+                        aznViewModel.azn.value = editAzn.text.toString().toDouble()
                     }
                 }
 
+        }
+
+        aznViewModel.azn.observe(viewLifecycleOwner){
+            binding.editUsd.setText("${it / usd!!.buy}")
+            binding.editEur.setText("${it / eur!!.buy}")
         }
 
         return binding.root

@@ -12,7 +12,7 @@ import org.koin.core.context.startKoin
 class MyApp: Application() {
 
 
-    val moduleList = listOf(retrofitModule, viewModelModule)
+    val moduleList = listOf(retrofitModule, viewModelModule, aznModelModule)
 
 // start koin with the module list
 

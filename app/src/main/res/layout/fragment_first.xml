@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,17 +7,26 @@
 
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:background="@color/black"
         android:scaleType="fitXY"
-        android:src="@drawable/header" />
+        android:src="@drawable/header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        app:layout_constraintVertical_bias="0.2"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-100dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -30,7 +39,6 @@
                 android:layout_height="240dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginHorizontal="32dp"
-                android:layout_marginTop="240dp"
                 android:elevation="10dp"
                 app:cardBackgroundColor="#fcfcfc"
                 app:cardCornerRadius="10dp"
@@ -141,7 +149,6 @@
         </RelativeLayout>
 
         <Button
-            android:enabled="false"
             android:id="@+id/convert"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
@@ -150,9 +157,10 @@
             android:layout_gravity="center"
             android:layout_marginTop="-35dp"
             android:elevation="15dp"
+            android:enabled="false"
             android:text="Convert" />
 
 
     </LinearLayout>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
